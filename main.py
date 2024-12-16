@@ -33,8 +33,8 @@ def mostrar_opcoes_projeto():
         print(f"{projeto}: {horario}")
 # Cadastra os Estudantes
 def cadastrar_estudante():
-    nome = input("Digite o nome do aluno: ")
-    senha = input("Digite a senha do aluno: ")
+    nome = str(input("Digite o nome do aluno: "))
+    senha = int(input("Digite a senha do aluno: "))
 
     mostrar_opcoes_turmas()
     turma_numero = int(input("Escolha uma turma pelo pelo número: "))
@@ -73,7 +73,17 @@ def cadastrar_estudante():
     estudantes.append(estudante)
     print("Cadastro realizado com sucesso!")
     print(estudante)
-
+    
+# VER ISSO AQUI ABAIXO MELHOOOOOOOOOOOOOOOORRRRR
+# Exceção
+try:
+    nome = str(input("Digite o nome do aluno: "))
+    nome = str(nome)
+    senha = int(input("Digite a senha do aluno: "))
+    senha = int(senha)
+except ValueError:
+    print("Nome ou senha inválido!!")
+    
 def login():
     nome = input("Digite o nome do aluno: ")
     senha = input("Digite a senha do aluno: ")
@@ -83,6 +93,7 @@ def login():
             print(estudante)
             return
     print("Nome ou senha incorreta.")
+    
 # Interface
 
 def main():
