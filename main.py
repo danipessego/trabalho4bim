@@ -87,7 +87,7 @@ def login():
 # Interface
 def main():
     while True:
-    # Tratamento de exceção
+    # Tratamento de exceção na escolha de opção
         try:
             print("\n1. Login")
             print("2. Cadastro")
