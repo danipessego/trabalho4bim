@@ -26,7 +26,7 @@ def mostrar_opcoes_idioma():
     print("Opções de Idiomas:")
     for turma in turmas_idiomas:
         print(f"{turma.nome} [{turma.numero}] - {turma.horario}")
-# Exibe os projetos existentes
+# Exibe os projetos disponíveis
 def mostrar_opcoes_projeto():
     print("Opções de Projetos:")
     for projeto, horario in projetos.items():
@@ -83,8 +83,8 @@ def login():
             print(estudante)
             return
     print("Nome ou senha incorreta.")
+    
 # Interface
-
 def main():
     while True:
         print("\n1. Login")
