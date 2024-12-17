@@ -37,7 +37,7 @@ def cadastrar_estudante():
     senha = input("Digite a senha do aluno: ")
 
     mostrar_opcoes_turmas()
-# Tratamento de exceção na escolha de turma
+# Tratamento de exceção na escolha de turma (alterado por: Ana Clara Soares Lima)
     try:
         turma_numero = int(input("Escolha uma turma pelo número: "))
         turma_selecionada = next((turma for turma in turmas_disponiveis if turma.numero == turma_numero), None)
