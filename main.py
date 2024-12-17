@@ -26,7 +26,7 @@ def mostrar_opcoes_idioma():
     print("Opções de Idiomas:")
     for turma in turmas_idiomas:
         print(f"{turma.nome} [{turma.numero}] - {turma.horario}")
-# Exibe os projetos existentes
+# Exibe os projetos disponíveis
 def mostrar_opcoes_projeto():
     print("Opções de Projetos:")
     for projeto, horario in projetos.items():
@@ -57,10 +57,15 @@ def cadastrar_estudante():
     escolha = input("Deseja cadastrar um idioma? (digite s para SIM e n para NÃO): ").strip().lower()
     if escolha == 's':
         mostrar_opcoes_idioma()
-        idioma_numero = int(input("Escolha um idioma pelo código: "))
-        turma_idioma = next((turma for turma in turmas_idiomas if turma.numero == idioma_numero), None)
-        if turma_idioma:
-            estudante.idioma = turma_idioma.nome
+        try:
+            idioma_numero = int(input("Escolha um idioma pelo código: "))
+            turma_idioma = next((turma for turma in turmas_idiomas if turma.numero == idioma_numero), None)
+            if turma_idioma:
+                estudante.idioma = turma_idioma.nome
+            else:
+                raise ValueError("Código de idioma inválido.")
+        except ValueError as e:
+            print("Código de idioma inválido!")
 
     # Cadastro Estudante de projeto
     escolha = input("Deseja cadastrar um projeto? (digite s para SIM e n para NÃO): ").strip().lower()
@@ -83,8 +88,8 @@ def login():
             print(estudante)
             return
     print("Nome ou senha incorreta.")
+    
 # Interface
-
 def main():
     while True:
         print("\n1. Login")
