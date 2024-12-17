@@ -45,8 +45,8 @@ def cadastrar_estudante():
 
     estudante = Estudante(nome, senha, turma_selecionada.nome)
 
-    # Cadastro Estudante atleta
-   escolha = input("Deseja cadastrar um esporte? (digite s para SIM e n para NÃO): ").strip().lower()
+    # Cadastro Estudante atleta (alterado por Arthur Miranda Melo)
+    escolha = input("Deseja cadastrar um esporte? (digite s para SIM e n para NÃO): ").strip().lower()
     if escolha == 's':
         mostrar_opcoes_esporte()
     # Tratamento de exceção escolha de esportes
@@ -68,13 +68,18 @@ def cadastrar_estudante():
         if turma_idioma:
             estudante.idioma = turma_idioma.nome
 
-    # Cadastro Estudante de projeto
+    # Cadastro Estudante de projeto (alterado po Arthur Miranda Melo)
     escolha = input("Deseja cadastrar um projeto? (digite s para SIM e n para NÃO): ").strip().lower()
     if escolha == 's':
         mostrar_opcoes_projeto()
-        projeto = input("Escolha um projeto: ")
-        if projeto in projetos:
-            estudante.projeto = projeto
+        try:
+            projeto = input("Escolha um projeto: ")
+            if projeto in projetos:
+                estudante.projeto = projeto
+            else:
+                raise ValueError("Projeto inválido")
+        except ValueError as e:
+            print("Projeto inválido! Não foi possível cadastrar um projeto.")
 
     estudantes.append(estudante)
     print("Cadastro realizado com sucesso!")
