@@ -10,27 +10,36 @@ from outros import *
 # Lista de Estudantes
 estudantes = []
 
+
 # Funções
 # Exibe as turmas disponíveis
 def mostrar_opcoes_turmas():
     print("Opções de Turmas:")
     for turma in turmas_disponiveis:
         print(f"{turma.nome} [{turma.numero}]")
+
+
 # Exibe os esportes disponíveis
 def mostrar_opcoes_esporte():
     print("Opções de Esportes:")
     for esporte, horario in esportes.items():
         print(f"{esporte}: {horario}")
+
+
 # Exibe as turmas do Centro de Idiomas disponíveis
 def mostrar_opcoes_idioma():
     print("Opções de Idiomas:")
     for turma in turmas_idiomas:
         print(f"{turma.nome} [{turma.numero}] - {turma.horario}")
+
+
 # Exibe os projetos existentes
 def mostrar_opcoes_projeto():
     print("Opções de Projetos:")
     for projeto, horario in projetos.items():
         print(f"{projeto}: {horario}")
+
+
 # Cadastra os Estudantes
 def cadastrar_estudante():
     nome = str(input("Digite o nome do aluno: "))
@@ -73,17 +82,6 @@ def cadastrar_estudante():
     estudantes.append(estudante)
     print("Cadastro realizado com sucesso!")
     print(estudante)
-    
-# VER ISSO AQUI ABAIXO MELHOOOOOOOOOOOOOOOORRRRR
-# Exceção
-try:
-    nome = str(input("Digite o nome do aluno: "))
-    nome = str(nome)
-    senha = int(input("Digite a senha do aluno: "))
-    senha = int(senha)
-except ValueError:
-    print("Nome ou senha inválido!!")
-    
 def login():
     nome = input("Digite o nome do aluno: ")
     senha = input("Digite a senha do aluno: ")
@@ -93,24 +91,11 @@ def login():
             print(estudante)
             return
     print("Nome ou senha incorreta.")
-    
-# Interface
 
-def main():
-    while True:
-        print("\n1. Login")
-        print("2. Cadastro")
-        print("3. Sair")
-        opcao = input("Escolha uma opção: ")
-        if opcao == '1':
-            login()
-        elif opcao == '2':
-            cadastrar_estudante()
-        elif opcao == '3':
-            print("Encerrando o sistema...")
-            break
-        else:
-            print("Opção inválida. Tente novamente.")
+
+# Interface
+from excecao import *
+
 
 if __name__ == "__main__":
     main()
