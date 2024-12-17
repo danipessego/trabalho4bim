@@ -37,10 +37,14 @@ def cadastrar_estudante():
     senha = input("Digite a senha do aluno: ")
 
     mostrar_opcoes_turmas()
-    turma_numero = int(input("Escolha uma turma pelo pelo número: "))
-    turma_selecionada = next((turma for turma in turmas_disponiveis if turma.numero == turma_numero), None)
-    if turma_selecionada is None:
-        print("Turma inválida. Cadastro cancelado.")
+# Tratamento de exceção
+    try:
+        turma_numero = int(input("Escolha uma turma pelo número: "))
+        turma_selecionada = next((turma for turma in turmas_disponiveis if turma.numero == turma_numero), None)
+        if turma_selecionada is None:
+            raise ValueError("Turma inválida.")
+    except ValueError as e:
+        print("Turma inválida! Tente Novamente")
         return
 
     estudante = Estudante(nome, senha, turma_selecionada.nome)
