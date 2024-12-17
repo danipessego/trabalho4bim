@@ -57,6 +57,7 @@ def cadastrar_estudante():
     escolha = input("Deseja cadastrar um idioma? (digite s para SIM e n para NÃO): ").strip().lower()
     if escolha == 's':
         mostrar_opcoes_idioma()
+    # Tratamento de exceção (alterado por: Anna Flávia de Oliveira)
         try:
             idioma_numero = int(input("Escolha um idioma pelo código: "))
             turma_idioma = next((turma for turma in turmas_idiomas if turma.numero == idioma_numero), None)
